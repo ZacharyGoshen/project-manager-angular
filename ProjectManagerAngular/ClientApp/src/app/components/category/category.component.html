@@ -1,6 +1,6 @@
 <div class="category flex-column">
-    <div>{{ category.name }}</div>
-    <div *ngFor="let task of tasks" class="flex-align-items-baseline flex-row">
+    <div class="border-bottom-light-gray border-top-light-gray font-large">{{ category.name }}</div>
+    <div *ngFor="let task of tasks" class="border-bottom-light-gray flex-align-items-center flex-row">
         <app-task [task]="task"></app-task>
         <button (click)="deleteTask(task)" class="font-small">x</button>
     </div>

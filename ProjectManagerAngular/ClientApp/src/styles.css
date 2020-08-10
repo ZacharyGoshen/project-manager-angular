@@ -3,20 +3,35 @@ body {
   padding: 0px;
 }
 button {
-    background-color: transparent;
-    border: none;
-    padding: 0px;
+  background-color: transparent;
+  border: none;
+  padding: 0px;
+}
+p {
+  margin: 0px;
+}
+.border-bottom-light-gray {
+  border-bottom: 2px solid #f0f0f0;
+}
+.border-full-light-gray {
+  border: 2px solid #f0f0f0;
+}
+.border-top-light-gray {
+  border-top: 2px solid #f0f0f0;
 }
 .flex-align-items-baseline {
-    align-items: baseline;
+  align-items: baseline;
+}
+.flex-align-items-center {
+  align-items: center;
 }
 .flex-column {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 .flex-row {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 .font-large {
   font-size: 20px;
