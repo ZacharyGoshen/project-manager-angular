@@ -1,0 +1,19 @@
+body {
+  margin: 0px;
+  padding: 0px;
+}
+.font-large {
+  font-size: 20px;
+}
+.font-medium {
+  font-size: 15px;
+}
+.font-small {
+  font-size: 12px;
+}
+.font-very-large {
+  font-size: 30px;
+}
+.font-very-small {
+  font-size: 10px;
+}
