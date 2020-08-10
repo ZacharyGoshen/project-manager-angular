@@ -2,5 +2,8 @@
     <div>Name</div>
     <div *ngFor="let task of tasks">
         <app-task [task]="task"></app-task>
+        <button (click)="deleteTask(task)">Delete task</button>
     </div>
+    <input #taskName placeholder="task name"/>
+    <button (click)="addTask(taskName.value); taskName.value=''">Add task</button>
 </div>

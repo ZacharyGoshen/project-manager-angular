@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace ProjectManagerAngularTest
 {
     [TestClass]
-    public class UnitTest1
+    public class TaskTests
     {
         [TestMethod]
         public void TestMethod1()

@@ -23,4 +23,18 @@ export class CategoryComponent implements OnInit {
       .subscribe(tasks => this.tasks = tasks);
   }
 
+  addTask(name: string): void {
+    name = name.trim();
+    if (!name) { return };
+    this.taskService.addTask({ name: name } as Task)
+      .subscribe(task => {
+        this.tasks.push(task)
+      });
+  }
+
+  deleteTask(task: Task): void {
+    this.tasks = this.tasks.filter(t => t !== task);
+    this.taskService.deleteTask(task).subscribe();
+  }
+
 }
