@@ -1,0 +1,9 @@
+<div class="project flex-column">
+    <div *ngFor="let category of categories">
+        <app-category [category]="category"></app-category>
+    </div>
+    <div class="flex-row">
+        <input #categoryName placeholder="category name" />
+        <button (click)="addCategory(categoryName.value); categoryName.value=''">Add category</button>
+    </div>
+</div>

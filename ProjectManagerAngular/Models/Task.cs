@@ -11,6 +11,7 @@ namespace ProjectManagerAngular.Models
         [StringLength(100, ErrorMessage = "Name cannot exceed 100 characters")]
         public string Name { get; set; }
 
+        [Required]
         public int CategoryId { get; set; }
         public Category Category { get; set; }
     }

@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 import { Task } from './../../models/task';
 import { TaskService } from './../../services/task.service';
 import { MessageService } from '../../services/message.service';
+import { Category } from '../../models/category';
 
 @Component({
   selector: 'app-category',
@@ -11,6 +12,7 @@ import { MessageService } from '../../services/message.service';
 })
 export class CategoryComponent implements OnInit {
 
+  @Input() category: Category;
   tasks: Task[];
 
   constructor(private taskService: TaskService, private messageService: MessageService) { }
@@ -34,7 +36,7 @@ export class CategoryComponent implements OnInit {
       this.messageService.addMessage("A task's name can not be longer than 100 characters");
       return;
     }
-    this.taskService.addTask({ name: name } as Task)
+    this.taskService.addTask({ name: name, categoryId: this.category.id } as Task)
       .subscribe(task => {
         this.tasks.push(task);
       });

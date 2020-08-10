@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { CategoryComponent } from './components/category/category.component';
 import { TaskComponent } from './components/task/task.component';
 import { MessagesComponent } from './components/messages/messages.component';
+import { ProjectComponent } from './components/project/project.component';
 
 
 @NgModule({
@@ -15,14 +16,15 @@ import { MessagesComponent } from './components/messages/messages.component';
     AppComponent,
     TaskComponent,
     CategoryComponent,
-    MessagesComponent
+    MessagesComponent,
+    ProjectComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: CategoryComponent, pathMatch: 'full' },
+      { path: '', component: ProjectComponent, pathMatch: 'full' },
     ])
   ],
   providers: [],
