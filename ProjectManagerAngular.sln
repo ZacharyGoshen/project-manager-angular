@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectManagerAngular", "ProjectManagerAngular\ProjectManagerAngular.csproj", "{A90A2E5C-72A1-4058-9530-18C0E42C4689}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectManagerAngularTest", "ProjectManagerAngularTest\ProjectManagerAngularTest.csproj", "{7B9B145C-6756-48E7-87BE-1042B7D7F99F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,5 +15,9 @@ Global
 		{A90A2E5C-72A1-4058-9530-18C0E42C4689}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A90A2E5C-72A1-4058-9530-18C0E42C4689}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A90A2E5C-72A1-4058-9530-18C0E42C4689}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B9B145C-6756-48E7-87BE-1042B7D7F99F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B9B145C-6756-48E7-87BE-1042B7D7F99F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B9B145C-6756-48E7-87BE-1042B7D7F99F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B9B145C-6756-48E7-87BE-1042B7D7F99F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
