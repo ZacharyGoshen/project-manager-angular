@@ -9,12 +9,11 @@ import { TASKS } from './../data/task-data';
   providedIn: 'root'
 })
 export class TaskService {
-  private tasksUrl = 'api/tasks';
+  private tasksUrl = 'tasks';
 
   constructor(private http: HttpClient) { }
 
   getTasks(): Observable<Task[]> {
     return this.http.get<Task[]>(this.tasksUrl);
   }
-
 }
