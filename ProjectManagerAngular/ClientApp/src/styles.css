@@ -2,6 +2,22 @@ body {
   margin: 0px;
   padding: 0px;
 }
+button {
+    background-color: transparent;
+    border: none;
+    padding: 0px;
+}
+.flex-align-items-baseline {
+    align-items: baseline;
+}
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
 .font-large {
   font-size: 20px;
 }
@@ -17,3 +33,4 @@ body {
 .font-very-small {
   font-size: 10px;
 }
+

@@ -27,10 +27,15 @@ namespace ProjectManagerAngular
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             OnModelCreatingPartial(modelBuilder);
+
+            modelBuilder.Entity<Category>()
+                .HasMany(c => c.Tasks)
+                .WithOne(t => t.Category);
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 
         public DbSet<Task> Tasks { get; set; }
+        public DbSet<Category> Categories { get; set; }
     }
 }

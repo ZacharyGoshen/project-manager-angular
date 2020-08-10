@@ -1,8 +1,8 @@
-<div class="category">
+<div class="category flex-column">
     <div>Name</div>
-    <div *ngFor="let task of tasks">
+    <div *ngFor="let task of tasks" class="flex-align-items-baseline flex-row">
         <app-task [task]="task"></app-task>
-        <button (click)="deleteTask(task)">Delete task</button>
+        <button (click)="deleteTask(task)" class="font-small">x</button>
     </div>
     <input #taskName placeholder="task name"/>
     <button (click)="addTask(taskName.value); taskName.value=''">Add task</button>
