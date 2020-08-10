@@ -27,6 +27,11 @@ namespace ProjectManagerAngular.Controllers
         [Route("tasks")]
         public JsonResult AddTask([FromBody] Task task)
         {
+            if (!ModelState.IsValid)
+            {
+                return Json(task);
+            }
+
             var context = new Context();
             try
             {

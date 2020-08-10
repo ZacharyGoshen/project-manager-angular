@@ -7,13 +7,15 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { CategoryComponent } from './components/category/category.component';
 import { TaskComponent } from './components/task/task.component';
+import { MessagesComponent } from './components/messages/messages.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     TaskComponent,
-    CategoryComponent
+    CategoryComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
