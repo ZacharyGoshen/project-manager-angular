@@ -27,6 +27,12 @@ export class CategoryComponent implements OnInit {
       .subscribe(tasks => this.tasks = tasks);
   }
 
+  onKeyDown(event): void {
+    if (event.key == 'Enter') {
+      this.addTask
+    }
+  }
+
   addTask(name: string): void {
     name = name.trim();
     if (!name) {

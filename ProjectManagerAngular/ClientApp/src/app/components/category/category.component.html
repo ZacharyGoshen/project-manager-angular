@@ -1,11 +1,11 @@
 <div class="category flex-column">
-    <div class="border-bottom-light-gray border-top-light-gray font-large">{{ category.name }}</div>
-    <div *ngFor="let task of tasks" class="border-bottom-light-gray flex-align-items-center flex-row">
+    <div class="border-bottom-light-gray font-large">{{ category.name }}</div>
+    <div *ngFor="let task of tasks"
+         class="border-bottom-light-gray flex-align-items-center flex-row">
         <app-task [task]="task"></app-task>
         <button (click)="deleteTask(task)" class="font-small">x</button>
     </div>
     <div class="flex-row">
-        <input #taskName placeholder="task name" />
-        <button (click)="addTask(taskName.value); taskName.value=''">Add task</button>
+        <input #taskName (keydown.enter)="addTask(taskName.value); taskName.value=''" placeholder="task name" class=""/>
     </div>
 </div>

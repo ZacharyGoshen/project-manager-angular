@@ -7,6 +7,9 @@ button {
   border: none;
   padding: 0px;
 }
+input {
+  border: none;
+}
 p {
   margin: 0px;
 }

@@ -21,7 +21,9 @@ namespace ProjectManagerAngular.Controllers
             var context = new Context();
             try
             {
-                return Json(context.Tasks.Where(task => task.CategoryId == Int32.Parse(categoryId)));
+                var tasks = context.Tasks
+                    .Where(task => task.CategoryId == Int32.Parse(categoryId));
+                return Json(tasks);
             }
             catch
             {
