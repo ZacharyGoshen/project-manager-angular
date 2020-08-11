@@ -65,7 +65,7 @@ export class CategoryComponent implements OnInit {
   updateCategoryName(name: string): void {
     name = name.trim();
     if (!name) {
-      this.messageService.addMessage('A category can not be created without a name');
+      this.messageService.addMessage("A category's name must not be nothing");
       return;
     }
     if (name.length > 50) {

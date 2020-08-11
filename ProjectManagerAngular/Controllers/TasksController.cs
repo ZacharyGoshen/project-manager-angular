@@ -53,6 +53,28 @@ namespace ProjectManagerAngular.Controllers
             }
         }
 
+        [HttpPut]
+        [Route("tasks")]
+        public JsonResult UpdateTask([FromBody] Task task)
+        {
+            if (!ModelState.IsValid)
+            {
+                return Json(task);
+            }
+
+            var context = new Context();
+            try
+            {
+                context.Entry(context.Tasks.Find(task.Id)).CurrentValues.SetValues(task);
+                context.SaveChanges();
+                return Json(task);
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
         [HttpDelete]
         [Route("tasks/{id}")]
         public JsonResult DeleteTask(int id)

@@ -27,6 +27,10 @@ export class TaskService {
     return this.http.post<Task>(this.tasksUrl, task, this.httpOptions);
   }
 
+  updateTask(task: Task): Observable<Task> {
+    return this.http.put<Task>(this.tasksUrl, task, this.httpOptions);
+  }
+
   deleteTask(task: Task): Observable<Task> {
     this.messageService.addMessage(`Deleted task: ${task.name}`);
     const url = `${this.tasksUrl}/${task.id}`;
