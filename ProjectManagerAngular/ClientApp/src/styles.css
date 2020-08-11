@@ -26,6 +26,9 @@ p {
 .border-full-white {
   border: 2px solid white;
 }
+.border-right-light-gray {
+  border-right: 2px solid #f0f0f0;
+}
 .border-top-light-gray {
   border-top: 2px solid #f0f0f0;
 }
@@ -78,5 +81,10 @@ p {
 }
 .hover-font-dark-gray:hover {
   color: #3f3f3f;
+}
+.overflow-ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 

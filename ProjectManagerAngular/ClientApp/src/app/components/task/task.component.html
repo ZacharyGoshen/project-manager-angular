@@ -1,4 +1,4 @@
-<div class="task border-bottom-light-gray font-medium flex-justify-content-space-between flex-row">
-    {{ task.name }}
+<div class="task border-bottom-light-gray font-medium flex-align-items-center flex-justify-content-space-between flex-row">
+    <input class="task-name border-right-light-gray overflow-ellipsis" value="{{ task.name }}"/>
     <div (click)="deleteTask(task)" class="font-small hover-cursor-pointer">x</div>
 </div>

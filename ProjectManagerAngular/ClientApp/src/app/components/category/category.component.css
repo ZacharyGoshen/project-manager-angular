@@ -1,10 +1,25 @@
 .category {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+}
+.category-delete-button {
+    margin: 0px 10px;
 }
 .category-name {
-    margin-bottom: 5px;
+    margin: 5px 0px;
     padding: 0px 5px;
+    width: 100%;
 }
 .new-task {
+    margin-top: 10px;
     padding-left: 10px;
+}
+.new-task-button {
+    padding: 5px 0px;
+}
+.new-task-input {
+    padding: 5px;
+    width: 100%;
+}
+.tasks {
+    margin-left: 20px;
 }

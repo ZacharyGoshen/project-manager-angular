@@ -1,3 +1,18 @@
+.header {
+  margin-bottom: 20px;
+}
+.header-name-task {
+  margin-left: 10px;
+  padding: 5px 0px;
+  width: 320px;
+}
+.new-category-button {
+    margin-left: 5px;
+}
+.new-category-input {
+    padding: 0px 5px;
+    width: 100%;
+}
 .project {
-    margin: 10px;
+  margin: 10px;
 }

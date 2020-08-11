@@ -1,13 +1,15 @@
 <div class="category flex-column">
-    <div class="border-bottom-light-gray flex-align-items-center flex-justify-content-space-between flex-row">
-        <input #categoryNameInput (keydown.enter)="updateCategoryName(categoryNameInput.value)" class="category-name border-full-white border-radius-5px focus-border-dark-gray font-large hover-border-light-gray hover-cursor-pointer" value="{{ category.name }}"/>
-        <div (click)="deleteCategory(category)" class="font-large hover-cursor-pointer">x</div>
+    <div class=" flex-align-items-center flex-justify-content-space-between flex-row">
+        <input #categoryNameInput (keydown.enter)="updateCategoryName(categoryNameInput.value)" class="category-name border-full-white border-radius-5px focus-border-dark-gray font-large hover-border-light-gray hover-cursor-pointer" value="{{ category.name }}" />
+        <div (click)="deleteCategory(category)" class="category-delete-button font-large hover-cursor-pointer">x</div>
     </div>
-    <div *ngFor="let task of tasks">
-        <app-task [task]="task" (deleteTaskEvent)="deleteTask($event)"></app-task>
-    </div>
-    <div class="new-task flex-row">
-        <div #newTaskButton [hidden]="!newTaskInputHidden" (click)="showNewTaskInput()"class="font-medium font-light-gray hover-cursor-pointer hover-font-dark-gray">+ add task</div>
-        <input #newTaskInput [hidden]="newTaskInputHidden" (keydown.enter)="addTask(newTaskInput.value); newTaskInput.value=''" class="border-radius-5px font-medium focus-border-dark-gray"/>
+    <div class="tasks border-top-light-gray">
+        <div *ngFor="let task of tasks">
+            <app-task [task]="task" (deleteTaskEvent)="deleteTask($event)"></app-task>
+        </div>
+        <div class="new-task flex-row">
+            <div #newTaskButton [hidden]="!newTaskInputHidden" (click)="showNewTaskInput()" class="new-task-button border-full-white font-medium font-light-gray hover-cursor-pointer hover-font-dark-gray">+ Add task</div>
+            <input #newTaskInput [hidden]="newTaskInputHidden" (keydown.enter)="addTask(newTaskInput.value); newTaskInput.value=''" class="new-task-input border-radius-5px font-medium focus-border-dark-gray" />
+        </div>
     </div>
 </div>

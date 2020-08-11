@@ -1,4 +1,9 @@
 .task {
+    height: 100%;
     padding: 0px 10px;
     width: 100%;
+}
+.task-name {
+    padding: 5px 5px 5px 0px;
+    width: 300px;
 }

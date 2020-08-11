@@ -1,10 +1,15 @@
 <div class="project flex-column">
-    <div *ngFor="let category of categories">
-        <app-category [category]="category" (deleteCategoryEvent)="deleteCategory($event)"></app-category>
+    <div class="header border-bottom-light-gray border-top-light-gray flex-row">
+        <div class="header-name-task  border-right-light-gray font-medium">Task Name</div>
     </div>
-    <div class="flex-row">
-        <div #newCategoryButton [hidden]="!newCategoryInputHidden" (click)="showNewCategoryInput()" class="font-large font-light-gray hover-cursor-pointer hover-font-dark-gray">+ add category</div>
-        <input #newCategoryInput [hidden]="newCategoryInputHidden" (keydown.enter)="addCategory(newCategoryInput.value); newCategoryInput.value=''" class="border-radius-5px focus-border-dark-gray font-large" />
+    <div class="categories">
+        <div *ngFor="let category of categories">
+            <app-category [category]="category" (deleteCategoryEvent)="deleteCategory($event)"></app-category>
+        </div>
+        <div class="new-category flex-row">
+            <div #newCategoryButton [hidden]="!newCategoryInputHidden" (click)="showNewCategoryInput()" class="new-category-button border-full-white font-large font-light-gray hover-cursor-pointer hover-font-dark-gray">+ Add category</div>
+            <input #newCategoryInput [hidden]="newCategoryInputHidden" (keydown.enter)="addCategory(newCategoryInput.value); newCategoryInput.value=''" class="new-category-input border-radius-5px focus-border-dark-gray font-large" />
+        </div>
     </div>
     <app-messages></app-messages>
 </div>

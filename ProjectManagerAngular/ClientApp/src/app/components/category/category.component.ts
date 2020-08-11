@@ -63,6 +63,15 @@ export class CategoryComponent implements OnInit {
   }
 
   updateCategoryName(name: string): void {
+    name = name.trim();
+    if (!name) {
+      this.messageService.addMessage('A category can not be created without a name');
+      return;
+    }
+    if (name.length > 50) {
+      this.messageService.addMessage("A category's name can not be longer than 50 characters");
+      return;
+    }
     this.category.name = name;
     this.categoryService.updateCategory(this.category).subscribe();
     this.categoryNameInput.nativeElement.blur();``
