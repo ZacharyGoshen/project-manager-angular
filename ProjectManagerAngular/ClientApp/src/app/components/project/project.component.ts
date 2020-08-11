@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 
 import { Category } from '../../models/category';
 import { CategoryService } from './../../services/category.service';
@@ -11,17 +11,30 @@ import { MessageService } from '../../services/message.service';
 })
 export class ProjectComponent implements OnInit {
 
-  categories: Category[];
+  @ViewChild('newCategoryButton') newCategoryButton: ElementRef;
+  @ViewChild('newCategoryInput') newCategoryInput: ElementRef;
 
-  constructor(private categoryService: CategoryService, private messageService: MessageService) { }
+  categories: Category[];
+  newCategoryInputHidden: boolean = true;
+
+  constructor(private renderer: Renderer2, private categoryService: CategoryService, private messageService: MessageService) { }
 
   ngOnInit() {
     this.getCategories();
+    this.onClickOutsideNewCategoryInput();
   }
 
   getCategories(): void {
     this.categoryService.getCategories()
       .subscribe(categories => this.categories = categories);
+  }
+
+  showNewCategoryInput(): void {
+    this.newCategoryInputHidden = !this.newCategoryInputHidden;
+    setTimeout(() => { 
+      this.newCategoryInput.nativeElement.focus();
+      this.newCategoryInput.nativeElement.select();
+    }, 0); 
   }
 
   addCategory(name: string): void {
@@ -38,6 +51,18 @@ export class ProjectComponent implements OnInit {
       .subscribe(category => {
         this.categories.push(category);
       });
+  }
+
+  onClickOutsideNewCategoryInput(): void {
+    this.renderer.listen('window', 'click', (event: Event) => {
+      if (
+        event.target != this.newCategoryButton.nativeElement &&
+        event.target != this.newCategoryInput.nativeElement &&
+        !this.newCategoryInputHidden
+      ) {
+        this.newCategoryInputHidden = !this.newCategoryInputHidden;
+      } 
+    });
   }
 
 }

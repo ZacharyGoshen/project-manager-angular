@@ -10,7 +10,7 @@ import { Task } from './../../models/task';
 export class TaskComponent implements OnInit {
   @Input() task: Task
 
-  @Output() deleteTaskEvent = new EventEmitter<Task>();
+  @Output() deleteTaskEvent: EventEmitter<Task> = new EventEmitter<Task>();
 
   constructor() { }
 
@@ -18,7 +18,7 @@ export class TaskComponent implements OnInit {
     
   }
 
-  deleteTask() {
+  deleteTask(): void {
     this.deleteTaskEvent.emit(this.task);
   }
 

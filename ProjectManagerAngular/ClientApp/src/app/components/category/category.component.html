@@ -5,6 +5,6 @@
         <app-task [task]="task" (deleteTaskEvent)="deleteTask($event)"></app-task>
     </div>
     <div class="flex-row">
-        <input #taskName (keydown.enter)="addTask(taskName.value); taskName.value=''" placeholder="task name" class=""/>
+        <input #taskName (keydown.enter)="addTask(taskName.value); taskName.value=''" placeholder="+ add task" class="new-task-input font-medium"/>
     </div>
 </div>

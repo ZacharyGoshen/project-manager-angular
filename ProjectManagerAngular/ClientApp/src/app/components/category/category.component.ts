@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Renderer2 } from '@angular/core';
 
 import { Task } from './../../models/task';
 import { CategoryService } from './../../services/category.service';
@@ -16,7 +16,7 @@ export class CategoryComponent implements OnInit {
   @Input() category: Category;
   tasks: Task[];
 
-  constructor(private taskService: TaskService, private messageService: MessageService) { }
+  constructor(private renderer: Renderer2, private taskService: TaskService, private messageService: MessageService) { }
 
   ngOnInit() {
     this.getTasksInCategory();
@@ -25,12 +25,6 @@ export class CategoryComponent implements OnInit {
   getTasksInCategory(): void {
     this.taskService.getTasksInCategory(this.category.id)
       .subscribe(tasks => this.tasks = tasks);
-  }
-
-  onKeyDown(event): void {
-    if (event.key == 'Enter') {
-      this.addTask
-    }
   }
 
   addTask(name: string): void {
