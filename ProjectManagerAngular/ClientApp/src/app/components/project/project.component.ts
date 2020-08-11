@@ -1,8 +1,10 @@
 import { Component, OnInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 
+import { Project } from '../../models/project';
 import { Category } from '../../models/category';
 import { CategoryService } from './../../services/category.service';
 import { MessageService } from '../../services/message.service';
+import { ProjectService } from '../../services/project.service';
 
 @Component({
   selector: 'app-project',
@@ -14,14 +16,21 @@ export class ProjectComponent implements OnInit {
   @ViewChild('newCategoryButton', { static: false }) newCategoryButton: ElementRef;
   @ViewChild('newCategoryInput', { static: false }) newCategoryInput: ElementRef;
 
+  project: Project;
   categories: Category[];
   newCategoryInputHidden: boolean = true;
 
-  constructor(private renderer: Renderer2, private categoryService: CategoryService, private messageService: MessageService) { }
+  constructor(private renderer: Renderer2, private projectService: ProjectService, private categoryService: CategoryService, private messageService: MessageService) { }
 
   ngOnInit() {
+    this.getProject();
     this.getCategories();
     this.onClickOutsideNewCategoryInput();
+  }
+
+  getProject(): void {
+    this.projectService.getProject()
+      .subscribe(project => this.project = project);
   }
 
   getCategories(): void {
@@ -39,7 +48,7 @@ export class ProjectComponent implements OnInit {
       this.messageService.addMessage("A category's name can not be longer than 50 characters");
       return;
     }
-    this.categoryService.addCategory({ name: name } as Category)
+    this.categoryService.addCategory({ name: name, projectId: this.project.id } as Category)
       .subscribe(category => {
         this.categories.push(category);
       });

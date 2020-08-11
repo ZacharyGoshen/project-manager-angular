@@ -2,5 +2,6 @@ import { Task } from "./task";
 
 export interface Category {
   id: number,
-  name: string
+  name: string,
+  projectId: number
 }

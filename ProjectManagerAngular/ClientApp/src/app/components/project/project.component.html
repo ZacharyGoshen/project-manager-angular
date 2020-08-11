@@ -1,8 +1,11 @@
 <div class="project flex-column">
+    <div class="navigation-bar">
+        <div *ngIf="project" class="font-very-large">{{ project.name }}</div>
+    </div>
     <div class="header border-bottom-light-gray border-top-light-gray flex-row">
         <div class="header-name-task  border-right-light-gray font-medium">Task Name</div>
     </div>
-    <div class="categories">
+    <div class="categories flex-grow">
         <div *ngFor="let category of categories">
             <app-category [category]="category" (deleteCategoryEvent)="deleteCategory($event)"></app-category>
         </div>
@@ -10,6 +13,6 @@
             <div #newCategoryButton [hidden]="!newCategoryInputHidden" (click)="showNewCategoryInput()" class="new-category-button border-full-white font-large font-light-gray hover-cursor-pointer hover-font-dark-gray">+ Add category</div>
             <input #newCategoryInput [hidden]="newCategoryInputHidden" (keydown.enter)="addCategory(newCategoryInput.value); newCategoryInput.value=''" class="new-category-input border-radius-5px focus-border-dark-gray font-large" />
         </div>
+        <app-messages></app-messages>
     </div>
-    <app-messages></app-messages>
 </div>
