@@ -29,14 +29,6 @@ export class ProjectComponent implements OnInit {
       .subscribe(categories => this.categories = categories);
   }
 
-  showNewCategoryInput(): void {
-    this.newCategoryInputHidden = !this.newCategoryInputHidden;
-    setTimeout(() => { 
-      this.newCategoryInput.nativeElement.focus();
-      this.newCategoryInput.nativeElement.select();
-    }, 0); 
-  }
-
   addCategory(name: string): void {
     name = name.trim();
     if (!name) {
@@ -51,6 +43,25 @@ export class ProjectComponent implements OnInit {
       .subscribe(category => {
         this.categories.push(category);
       });
+    this.hideNewCategoryInput();
+  }
+
+  deleteCategory($event): void {
+    this.categories = this.categories.filter(c => c !== $event);
+    this.categoryService.deleteCategory($event).subscribe();
+  }
+
+  showNewCategoryInput(): void {
+    this.newCategoryInputHidden = !this.newCategoryInputHidden;
+    setTimeout(() => { 
+      this.newCategoryInput.nativeElement.focus();
+      this.newCategoryInput.nativeElement.select();
+    }, 0); 
+  }
+
+  hideNewCategoryInput(): void {
+    this.newCategoryInputHidden = !this.newCategoryInputHidden;
+    this.newCategoryInput.nativeElement.value = '';
   }
 
   onClickOutsideNewCategoryInput(): void {
@@ -60,7 +71,7 @@ export class ProjectComponent implements OnInit {
         event.target != this.newCategoryInput.nativeElement &&
         !this.newCategoryInputHidden
       ) {
-        this.newCategoryInputHidden = !this.newCategoryInputHidden;
+        this.hideNewCategoryInput();
       } 
     });
   }

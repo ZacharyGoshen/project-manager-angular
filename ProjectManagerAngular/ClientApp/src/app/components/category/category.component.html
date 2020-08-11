@@ -1,5 +1,8 @@
 <div class="category flex-column">
-    <div class="border-bottom-light-gray font-large">{{ category.name }}</div>
+    <div class="border-bottom-light-gray flex-align-items-center flex-justify-content-space-between flex-row">
+        <div class="font-large">{{ category.name }}</div>
+        <div (click)="deleteCategory(category)" class="font-large hover-cursor-pointer">x</div>
+    </div>
     <div *ngFor="let task of tasks">
         <app-task [task]="task" (deleteTaskEvent)="deleteTask($event)"></app-task>
     </div>

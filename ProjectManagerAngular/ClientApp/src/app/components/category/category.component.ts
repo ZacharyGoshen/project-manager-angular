@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Renderer2 } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, Renderer2 } from '@angular/core';
 
 import { Task } from './../../models/task';
 import { CategoryService } from './../../services/category.service';
@@ -14,12 +14,18 @@ import { Category } from '../../models/category';
 export class CategoryComponent implements OnInit {
 
   @Input() category: Category;
+  @Output() deleteCategoryEvent: EventEmitter<Category> = new EventEmitter<Category>();
+
   tasks: Task[];
 
   constructor(private renderer: Renderer2, private taskService: TaskService, private messageService: MessageService) { }
 
   ngOnInit() {
     this.getTasksInCategory();
+  }
+
+  deleteCategory(): void {
+    this.deleteCategoryEvent.emit(this.category);
   }
 
   getTasksInCategory(): void {
