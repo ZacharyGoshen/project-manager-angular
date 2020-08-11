@@ -29,6 +29,7 @@ export class CategoryComponent implements OnInit {
   ngOnInit() {
     this.getTasksInCategory();
     this.onClickOutsideNewTaskInput();
+    this.onClickOutsideCategoryNameInput()
   }
 
   deleteCategory(): void {
@@ -66,15 +67,30 @@ export class CategoryComponent implements OnInit {
     name = name.trim();
     if (!name) {
       this.messageService.addMessage("A category's name must not be nothing");
+      this.categoryNameInput.nativeElement.value = this.category.name;
+      this.categoryNameInput.nativeElement.blur();
       return;
     }
     if (name.length > 50) {
       this.messageService.addMessage("A category's name can not be longer than 50 characters");
+      this.categoryNameInput.nativeElement.value = this.category.name;
+      this.categoryNameInput.nativeElement.blur();
       return;
     }
     this.category.name = name;
     this.categoryService.updateCategory(this.category).subscribe();
     this.categoryNameInput.nativeElement.blur();``
+  }
+
+  onClickOutsideCategoryNameInput(): void {
+    this.renderer.listen('window', 'click', (event: Event) => {
+      if (
+        event.target != this.categoryNameInput.nativeElement &&
+        this.categoryNameInput.nativeElement.value != this.category.name
+      ) {
+        this.updateCategoryName(this.categoryNameInput.nativeElement.value);
+      }
+    });
   }
 
   showNewTaskInput(): void {
