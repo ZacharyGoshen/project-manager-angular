@@ -27,6 +27,10 @@ export class CategoryService {
     return this.http.post<Category>(this.categoriesUrl, category, this.httpOptions);
   }
 
+  updateCategory(category: Category): Observable<Category> {
+    return this.http.put<Category>(this.categoriesUrl, category, this.httpOptions);
+  }
+
   deleteCategory(category: Category): Observable<Category> {
     this.messageService.addMessage(`Deleted category: ${category.name}`);
     const url = `${this.categoriesUrl}/${category.id}`;

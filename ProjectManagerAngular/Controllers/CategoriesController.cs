@@ -26,7 +26,7 @@ namespace ProjectManagerAngular.Controllers
 
         [HttpPost]
         [Route("categories")]
-        public JsonResult AddCategories([FromBody] Category category)
+        public JsonResult AddCategory([FromBody] Category category)
         {
             if (!ModelState.IsValid)
             {
@@ -37,6 +37,28 @@ namespace ProjectManagerAngular.Controllers
             try
             {
                 context.Categories.Add(category);
+                context.SaveChanges();
+                return Json(category);
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        [HttpPut]
+        [Route("categories")]
+        public JsonResult UpdateCategory([FromBody] Category category)
+        {
+            if (!ModelState.IsValid)
+            {
+                return Json(category);
+            }
+
+            var context = new Context();
+            try
+            {
+                context.Entry(context.Categories.Find(category.Id)).CurrentValues.SetValues(category);
                 context.SaveChanges();
                 return Json(category);
             }

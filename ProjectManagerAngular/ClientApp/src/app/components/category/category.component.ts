@@ -13,16 +13,18 @@ import { Category } from '../../models/category';
 })
 export class CategoryComponent implements OnInit {
 
-  @ViewChild('newTaskButton') newTaskButton: ElementRef;
-  @ViewChild('newTaskInput') newTaskInput: ElementRef;
+  @ViewChild('categoryNameInput', { static: false }) categoryNameInput: ElementRef;
+  @ViewChild('newTaskButton', { static: false }) newTaskButton: ElementRef;
+  @ViewChild('newTaskInput', { static: false }) newTaskInput: ElementRef;
 
   @Input() category: Category;
   @Output() deleteCategoryEvent: EventEmitter<Category> = new EventEmitter<Category>();
 
   tasks: Task[];
+  categoryNameInputHidden: boolean = true;
   newTaskInputHidden: boolean = true;
 
-  constructor(private renderer: Renderer2, private taskService: TaskService, private messageService: MessageService) { }
+  constructor(private renderer: Renderer2, private categoryService: CategoryService, private taskService: TaskService, private messageService: MessageService) { }
 
   ngOnInit() {
     this.getTasksInCategory();
@@ -58,6 +60,12 @@ export class CategoryComponent implements OnInit {
   deleteTask($event): void {
     this.tasks = this.tasks.filter(t => t !== $event);
     this.taskService.deleteTask($event).subscribe();
+  }
+
+  updateCategoryName(name: string): void {
+    this.category.name = name;
+    this.categoryService.updateCategory(this.category).subscribe();
+    this.categoryNameInput.nativeElement.blur();``
   }
 
   showNewTaskInput(): void {

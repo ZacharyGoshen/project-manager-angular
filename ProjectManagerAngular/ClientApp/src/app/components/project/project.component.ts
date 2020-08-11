@@ -11,8 +11,8 @@ import { MessageService } from '../../services/message.service';
 })
 export class ProjectComponent implements OnInit {
 
-  @ViewChild('newCategoryButton') newCategoryButton: ElementRef;
-  @ViewChild('newCategoryInput') newCategoryInput: ElementRef;
+  @ViewChild('newCategoryButton', { static: false }) newCategoryButton: ElementRef;
+  @ViewChild('newCategoryInput', { static: false }) newCategoryInput: ElementRef;
 
   categories: Category[];
   newCategoryInputHidden: boolean = true;

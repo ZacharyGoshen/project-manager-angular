@@ -1,6 +1,10 @@
 .category {
     margin-bottom: 10px;
 }
+.category-name {
+    margin-bottom: 5px;
+    padding: 0px 5px;
+}
 .new-task {
     padding-left: 10px;
 }
