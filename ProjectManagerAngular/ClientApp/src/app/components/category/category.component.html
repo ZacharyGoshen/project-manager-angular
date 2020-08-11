@@ -2,8 +2,7 @@
     <div class="border-bottom-light-gray font-large">{{ category.name }}</div>
     <div *ngFor="let task of tasks"
          class="border-bottom-light-gray flex-align-items-center flex-row">
-        <app-task [task]="task"></app-task>
-        <button (click)="deleteTask(task)" class="font-small">x</button>
+        <app-task [task]="task" (deleteTaskEvent)="deleteTask($event)"></app-task>
     </div>
     <div class="flex-row">
         <input #taskName (keydown.enter)="addTask(taskName.value); taskName.value=''" placeholder="task name" class=""/>

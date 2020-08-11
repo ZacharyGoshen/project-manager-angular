@@ -49,9 +49,9 @@ export class CategoryComponent implements OnInit {
       });
   }
 
-  deleteTask(task: Task): void {
-    this.tasks = this.tasks.filter(t => t !== task);
-    this.taskService.deleteTask(task).subscribe();
+  deleteTask($event): void {
+    this.tasks = this.tasks.filter(t => t !== $event);
+    this.taskService.deleteTask($event).subscribe();
   }
 
 }
