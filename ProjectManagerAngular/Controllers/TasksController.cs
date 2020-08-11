@@ -10,12 +10,18 @@ namespace ProjectManagerAngular.Controllers
     {
         [HttpGet]
         [Route("tasks")]
-        public JsonResult ListTasks()
+        public JsonResult GetTasksInCategory()
         {
+            var categoryId = HttpContext.Request.Query["categoryId"].ToString();
+            if (categoryId == "")
+            {
+                throw new Exception();
+            }
+
             var context = new Context();
             try
             {
-                return Json(context.Tasks.ToList());
+                return Json(context.Tasks.Where(task => task.CategoryId == Int32.Parse(categoryId)));
             }
             catch
             {
@@ -29,7 +35,7 @@ namespace ProjectManagerAngular.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return Json(task);
+                throw new Exception();
             }
 
             var context = new Context();

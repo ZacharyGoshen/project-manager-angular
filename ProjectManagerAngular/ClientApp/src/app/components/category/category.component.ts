@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 import { Task } from './../../models/task';
+import { CategoryService } from './../../services/category.service';
 import { TaskService } from './../../services/task.service';
 import { MessageService } from '../../services/message.service';
 import { Category } from '../../models/category';
@@ -18,11 +19,11 @@ export class CategoryComponent implements OnInit {
   constructor(private taskService: TaskService, private messageService: MessageService) { }
 
   ngOnInit() {
-    this.getTasks();
+    this.getTasksInCategory();
   }
 
-  getTasks(): void {
-    this.taskService.getTasks()
+  getTasksInCategory(): void {
+    this.taskService.getTasksInCategory(this.category.id)
       .subscribe(tasks => this.tasks = tasks);
   }
 

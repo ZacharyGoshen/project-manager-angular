@@ -18,8 +18,8 @@ export class TaskService {
 
   constructor(private http: HttpClient, private messageService: MessageService) { }
 
-  getTasks(): Observable<Task[]> {
-    return this.http.get<Task[]>(this.tasksUrl);
+  getTasksInCategory(categoryId: number): Observable<Task[]> {
+    return this.http.get<Task[]>(`${this.tasksUrl}?categoryId=${categoryId}`);
   }
 
   addTask(task: Task): Observable<Task> {
@@ -39,4 +39,5 @@ export class TaskService {
       return of(result as T);
     }
   }
+
 }

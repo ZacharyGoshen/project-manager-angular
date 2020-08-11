@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 
 import { Category } from '../models/category';
 import { MessageService } from './message.service';
@@ -26,4 +26,5 @@ export class CategoryService {
     this.messageService.addMessage(`Created new category: ${category.name}`);
     return this.http.post<Category>(this.categoriesUrl, category, this.httpOptions);
   }
+
 }
