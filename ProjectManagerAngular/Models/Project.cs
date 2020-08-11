@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ProjectManagerAngular.Models
 {
-    public class Category
+    public class Project
     {
         public int Id { get; set; }
 
@@ -12,10 +12,6 @@ namespace ProjectManagerAngular.Models
         [StringLength(50, ErrorMessage = "Name cannot exceed 50 characters")]
         public string Name { get; set; }
 
-        [Required]
-        public int ProjectId { get; set; }
-        public Project Project { get; set; }
-
-        public List<Task> Tasks { get; set; }
+        public List<Category> Categories { get; set; }
     }
 }

@@ -28,6 +28,10 @@ namespace ProjectManagerAngular
         {
             OnModelCreatingPartial(modelBuilder);
 
+            modelBuilder.Entity<Project>()
+                .HasMany(p => p.Categories)
+                .WithOne(c => c.Project);
+
             modelBuilder.Entity<Category>()
                 .HasMany(c => c.Tasks)
                 .WithOne(t => t.Category);
@@ -37,5 +41,6 @@ namespace ProjectManagerAngular
 
         public DbSet<Task> Tasks { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Project> Projects { get; set; }
     }
 }
