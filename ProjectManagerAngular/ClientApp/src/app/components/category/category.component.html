@@ -6,7 +6,8 @@
     <div *ngFor="let task of tasks">
         <app-task [task]="task" (deleteTaskEvent)="deleteTask($event)"></app-task>
     </div>
-    <div class="flex-row">
-        <input #taskName (keydown.enter)="addTask(taskName.value); taskName.value=''" placeholder="+ add task" class="new-task-input font-medium"/>
+    <div class="new-task flex-row">
+        <div #newTaskButton [hidden]="!newTaskInputHidden" (click)="showNewTaskInput()"class="font-medium font-light-gray hover-cursor-pointer hover-font-dark-gray">+ add task</div>
+        <input #newTaskInput [hidden]="newTaskInputHidden" (keydown.enter)="addTask(newTaskInput.value); newTaskInput.value=''" class="border-radius-5px font-medium focus-border-dark-gray"/>
     </div>
 </div>

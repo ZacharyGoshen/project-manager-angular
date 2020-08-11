@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output, Renderer2 } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, Renderer2, ViewChild } from '@angular/core';
 
 import { Task } from './../../models/task';
 import { CategoryService } from './../../services/category.service';
@@ -13,15 +13,20 @@ import { Category } from '../../models/category';
 })
 export class CategoryComponent implements OnInit {
 
+  @ViewChild('newTaskButton') newTaskButton: ElementRef;
+  @ViewChild('newTaskInput') newTaskInput: ElementRef;
+
   @Input() category: Category;
   @Output() deleteCategoryEvent: EventEmitter<Category> = new EventEmitter<Category>();
 
   tasks: Task[];
+  newTaskInputHidden: boolean = true;
 
   constructor(private renderer: Renderer2, private taskService: TaskService, private messageService: MessageService) { }
 
   ngOnInit() {
     this.getTasksInCategory();
+    this.onClickOutsideNewTaskInput();
   }
 
   deleteCategory(): void {
@@ -47,11 +52,37 @@ export class CategoryComponent implements OnInit {
       .subscribe(task => {
         this.tasks.push(task);
       });
+    this.hideNewTaskInput();
   }
 
   deleteTask($event): void {
     this.tasks = this.tasks.filter(t => t !== $event);
     this.taskService.deleteTask($event).subscribe();
+  }
+
+  showNewTaskInput(): void {
+    this.newTaskInputHidden = !this.newTaskInputHidden;
+    setTimeout(() => {
+      this.newTaskInput.nativeElement.focus();
+      this.newTaskInput.nativeElement.select();
+    }, 0);
+  }
+
+  hideNewTaskInput(): void {
+    this.newTaskInputHidden = !this.newTaskInputHidden;
+    this.newTaskInput.nativeElement.value = '';
+  }
+
+  onClickOutsideNewTaskInput(): void {
+    this.renderer.listen('window', 'click', (event: Event) => {
+      if (
+        event.target != this.newTaskButton.nativeElement &&
+        event.target != this.newTaskInput.nativeElement &&
+        !this.newTaskInputHidden
+      ) {
+        this.hideNewTaskInput();
+      }
+    });
   }
 
 }
