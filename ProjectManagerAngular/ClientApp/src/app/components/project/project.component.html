@@ -3,7 +3,7 @@
         <app-category [category]="category"></app-category>
     </div>
     <div class="flex-row">
-        <div #newCategoryButton [hidden]="!newCategoryInputHidden" (click)="showNewCategoryInput()" class="font-large hover-cursor-pointer">+ new category</div>
+        <div #newCategoryButton [hidden]="!newCategoryInputHidden" (click)="showNewCategoryInput()" class="font-large font-light-gray hover-cursor-pointer">+ add category</div>
         <input #newCategoryInput [hidden]="newCategoryInputHidden" (keydown.enter)="addCategory(newCategoryInput.value); newCategoryInput.value=''" class="border-radius-5px focus-border-dark-gray font-large"/>
     </div>
 </div>

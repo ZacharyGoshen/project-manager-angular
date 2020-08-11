@@ -38,6 +38,9 @@ p {
   display: flex;
   flex-direction: column;
 }
+.flex-justify-content-space-between {
+    justify-content: space-between;
+}
 .flex-row {
   display: flex;
   flex-direction: row;
@@ -47,6 +50,9 @@ p {
 }
 .font-large {
   font-size: 20px;
+}
+.font-light-gray {
+  color: #9e9e9e;
 }
 .font-medium {
   font-size: 15px;
