@@ -20,6 +20,9 @@ p {
 .border-bottom-light-gray {
   border-bottom: 2px solid #f0f0f0;
 }
+.border-circle {
+  border-radius: 50%;
+}
 .border-full-light-gray {
   border: 2px solid #f0f0f0;
 }
@@ -44,6 +47,9 @@ p {
 .flex-column {
   display: flex;
   flex-direction: column;
+}
+.flex-grow {
+    flex-grow: 1;
 }
 .flex-justify-content-space-between {
   justify-content: space-between;
@@ -73,6 +79,9 @@ p {
 .font-very-small {
   font-size: 10px;
 }
+.font-white {
+    color: white;
+}
 .hover-border-light-gray:hover {
     border: 2px solid #f0f0f0;
 }
@@ -86,5 +95,11 @@ p {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+.text-decoration-line-through {
+    text-decoration: line-through;
+}
+.translucent {
+    opacity: 0.5;
 }
 

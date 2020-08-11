@@ -12,7 +12,15 @@ namespace ProjectManagerAngular.Models
         public string Name { get; set; }
 
         [Required]
+        public bool Completed { get; set; }
+
+        [Required]
         public int CategoryId { get; set; }
         public Category Category { get; set; }
+
+        public Task()
+        {
+            Completed = false;
+        }
     }
 }

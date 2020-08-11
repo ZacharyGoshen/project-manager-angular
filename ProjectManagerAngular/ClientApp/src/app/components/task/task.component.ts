@@ -21,6 +21,11 @@ export class TaskComponent implements OnInit {
     this.onClickOutsideTaskNameInput();
   }
 
+  updateTaskCompleted(): void {
+    this.task.completed = !this.task.completed;
+    this.taskService.updateTask(this.task).subscribe();
+  }
+
   updateTaskName(name: string): void {
     name = name.trim();
     if (!name) {

@@ -3,7 +3,12 @@
     padding: 0px 10px;
     width: 100%;
 }
+.task-completed {
+  margin-right: 5px;
+}
+.task-name {
+    width: 300px;
+}
 .task-name-input {
     padding: 5px 5px 5px 0px;
-    width: 300px;
 }

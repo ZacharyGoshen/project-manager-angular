@@ -1,4 +1,7 @@
 <div class="task border-bottom-light-gray font-medium flex-align-items-center flex-justify-content-space-between flex-row">
-    <input #taskNameInput (keydown.enter)="updateTaskName(taskNameInput.value)" class="task-name-input border-right-light-gray hover-cursor-pointer overflow-ellipsis" value="{{ task.name }}"/>
+    <div class="task-name flex-align-items-center flex-row">
+        <div [ngClass]="{'font-light-gray': !task.completed, 'translucent': !task.completed}" (click)="updateTaskCompleted()" class="task-completed font-medium hover-cursor-pointer">&#10003;</div>
+        <input #taskNameInput [ngClass]="{'text-decoration-line-through': task.completed}" (keydown.enter)="updateTaskName(taskNameInput.value)" class="task-name-input border-right-light-gray flex-grow hover-cursor-pointer overflow-ellipsis" value="{{ task.name }}" />
+    </div>
     <div (click)="deleteTask(task)" class="font-small hover-cursor-pointer">x</div>
 </div>
