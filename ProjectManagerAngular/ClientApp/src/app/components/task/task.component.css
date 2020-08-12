@@ -1,14 +1,21 @@
 .task {
-    height: 100%;
     padding: 0px 10px;
-    width: 100%;
 }
 .task-completed {
   margin-right: 5px;
 }
-.task-name {
-    width: 300px;
-}
 .task-name-input {
-    padding: 5px 5px 5px 0px;
+  padding: 5px 5px 5px 0px;
+  width: 300px;
+}
+.task-priority {
+  height: 20px;
+  margin: 0px 10px;
+  width: 100px;
+}
+.task-priority-option {
+  height: 20px;
+  line-height: 20px;
+  padding: 0px;
+  width: 100px;
 }

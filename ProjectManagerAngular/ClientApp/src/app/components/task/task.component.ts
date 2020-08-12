@@ -45,6 +45,11 @@ export class TaskComponent implements OnInit {
     this.taskNameInput.nativeElement.blur();
   }
 
+  updateTaskPriority(priority: number) {
+    this.task.priority = priority;
+    this.taskService.updateTask(this.task).subscribe();
+  }
+
   deleteTask(): void {
     this.deleteTaskEvent.emit(this.task);
   }
@@ -58,6 +63,23 @@ export class TaskComponent implements OnInit {
         this.updateTaskName(this.taskNameInput.nativeElement.value);
       }
     });
+  }
+
+  priorityToString(priority: number): string {
+    switch (priority) {
+      case 0:
+        return "None";
+      case 1:
+        return "Very Low";
+      case 2:
+        return "Low";
+      case 3:
+        return "Medium";
+      case 4:
+        return "High";
+      case 5:
+        return "Very High";
+    }
   }
 
 }

@@ -9,6 +9,9 @@ button {
   border: none;
   padding: 0px;
 }
+button:focus {
+    outline: none;
+}
 input {
   border: none;
   padding: 0px;
@@ -18,6 +21,24 @@ input:focus {
 }
 p {
   margin: 0px;
+}
+.background-light-gray {
+  background-color: lightgray;
+}
+.background-yellow-green {
+  background-color: greenyellow;
+}
+.background-light-green {
+  background-color: lightgreen;
+}
+.background-orange{
+  background-color: orange;
+}
+.background-red {
+  background-color: red;
+}
+.background-gold {
+  background-color: gold;
 }
 .border-bottom-light-gray {
   border-bottom: 2px solid #f0f0f0;
@@ -36,6 +57,9 @@ p {
 }
 .border-top-light-gray {
   border-top: 2px solid #f0f0f0;
+}
+.border-radius-10px {
+  border-radius: 10px;
 }
 .border-radius-5px {
   border-radius: 5px;
@@ -101,7 +125,13 @@ p {
 .text-decoration-line-through {
     text-decoration: line-through;
 }
+.text-align-center {
+    text-align: center
+}
 .translucent {
     opacity: 0.5;
 }
 
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
