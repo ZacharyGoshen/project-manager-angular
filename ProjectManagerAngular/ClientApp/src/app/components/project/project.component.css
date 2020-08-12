@@ -3,15 +3,19 @@
   padding: 10px 20px 10px 10px;
 }
 .header {
-  margin-bottom: 20px;
+    padding-left: 60px;
+    padding-right: 70px;
 }
-.header-name-priority {
+.header-due-date {
   padding: 5px 0px 5px 10px;
-  width: 120px;
+  width: 150px;
 }
-.header-name-task {
+.header-priority {
   padding: 5px 0px 5px 10px;
-  width: 358px;
+  width: 122px;
+}
+.header-name {
+  padding: 5px 0px 5px 10px;
 }
 .navigation-bar {
     padding: 10px;

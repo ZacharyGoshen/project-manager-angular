@@ -3,8 +3,10 @@
         <div *ngIf="project" class="font-very-large">{{ project.name }}</div>
     </div>
     <div class="header border-bottom-light-gray border-top-light-gray flex-row">
-        <div class="header-name-task  border-right-light-gray font-medium">Task Name</div>
-        <div class="header-name-priority  border-right-light-gray font-medium">Priority</div>
+        <div class="header-name  border-left-light-gray border-right-light-gray flex-grow font-medium">Name</div>
+        <div class="header-priority  border-right-light-gray font-medium">Priority</div>
+        <div class="header-due-date  border-right-light-gray font-medium">Due Date Start</div>
+        <div class="header-due-date  border-right-light-gray font-medium">Due Date End</div>
     </div>
     <div class="categories flex-grow">
         <div *ngFor="let category of categories">

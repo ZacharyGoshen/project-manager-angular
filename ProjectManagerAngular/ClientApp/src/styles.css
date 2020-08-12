@@ -54,6 +54,9 @@ p {
 .border-full-white {
   border: 2px solid white;
 }
+.border-left-light-gray {
+  border-left: 2px solid #f0f0f0;
+}
 .border-right-light-gray {
   border-right: 2px solid #f0f0f0;
 }

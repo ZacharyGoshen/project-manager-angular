@@ -1,16 +1,25 @@
-.task-checkbox {
-    margin-right: 15px;
-    padding-bottom: 8px;
-    padding-top: 16px;
-}
 .task {
     padding: 0px 10px;
 }
-.task-completed {
-  margin-right: 5px;
+.task-checkbox {
+  margin-right: 15px;
+  padding-bottom: 8px;
+  padding-top: 16px;
+}
+.task-due-date-section {
+    height: 50px;
+    padding-left: 10px;
+    min-width: 150px;
+}
+.task-name {
+    width: 100%;
 }
 .task-name-section {
-    width: 300px;
+  height: 50px;
+  padding-right: 20px;
+}
+.task-priority-section {
+  height: 50px;
 }
 .task-priority {
   height: 20px;

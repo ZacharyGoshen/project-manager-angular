@@ -50,6 +50,28 @@ export class TaskComponent implements OnInit {
     this.taskService.updateTask(this.task).subscribe();
   }
 
+  updateTaskDueDateStart($event) {
+    let dueDateStart = new Date($event.value);
+    if (dueDateStart < new Date()) {
+      return;
+    }
+    this.task.dueDateStart = dueDateStart;
+    this.taskService.updateTask(this.task).subscribe();
+  }
+
+  updateTaskDueDateEnd($event) {
+    if (!this.task.dueDateStart) {
+      return;
+    }
+    let dueDateStart = new Date(this.task.dueDateStart);
+    let dueDateEnd = new Date($event.value);
+    if (dueDateEnd <= dueDateStart) {
+      return;
+    }
+    this.task.dueDateEnd = dueDateEnd;
+    this.taskService.updateTask(this.task).subscribe();
+  }
+
   deleteTask(): void {
     this.deleteTaskEvent.emit(this.task);
   }
@@ -80,6 +102,14 @@ export class TaskComponent implements OnInit {
       case 5:
         return "Very High";
     }
+  }
+
+  parseUTCDate(date: string): string {
+    let localDate = new Date(new Date(date).toLocaleDateString());
+    let month = new Intl.DateTimeFormat('en', { month: 'long' }).format(localDate)
+    let day = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(localDate)
+    let compactDate = `${month} ${day}`;
+    return compactDate;
   }
 
 }

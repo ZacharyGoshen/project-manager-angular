@@ -24,8 +24,10 @@ namespace ProjectManagerAngular.Models
         [Required]
         public bool Completed { get; set; }
 
-        [Required]
         public TaskPriority Priority { get; set; }
+
+        public string DueDateStart { get; set; }
+        public string DueDateEnd { get; set; }
 
         [Required]
         public int CategoryId { get; set; }

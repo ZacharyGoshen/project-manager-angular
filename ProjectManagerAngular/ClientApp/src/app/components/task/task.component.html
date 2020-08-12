@@ -1,80 +1,69 @@
-<div class="task border-bottom-light-gray font-medium flex-align-items-center flex-grow flex-justify-content-space-between flex-row">
-    <div class="border-right-light-gray flex-align-items-center flex-row">
-        <div class="task-name-section border-right-light-gray flex-align-items-center flex-row">
-            <div class="task-checkbox">
-                <mat-checkbox [checked]="task.completed" (change)="updateTaskCompleted()">
-                </mat-checkbox>
-            </div>
-            <input #taskNameInput [ngClass]="{'text-decoration-line-through': task.completed}" (keydown.enter)="updateTaskName(taskNameInput.value)" class="task-name-input flex-grow hover-cursor-pointer overflow-ellipsis" value="{{ task.name }}" />
+<div class="task border-bottom-light-gray font-medium flex-align-items-center flex-grow flex-row">
+    <div class="task-name-section border-right-light-gray flex-align-items-center flex-grow flex-row">
+        <div class="task-checkbox">
+            <mat-checkbox [checked]="task.completed" (change)="updateTaskCompleted()">
+            </mat-checkbox>
         </div>
-
+        <input #taskNameInput [ngClass]="{'text-decoration-line-through': task.completed}" (keydown.enter)="updateTaskName(taskNameInput.value)" class="task-name-input flex-grow hover-cursor-pointer overflow-ellipsis" value="{{ task.name }}" />
+    </div>
+    <div class="task-priority-section border-right-light-gray flex-align-items-center flex-row">
         <button matRipple
                 [matRippleColor]="gray"
                 [matRippleCentered]="true"
                 [matMenuTriggerFor]="menu"
                 [ngClass]="
-                    {
-                        'background-light-gray': task.priority == 0,
-                        'background-light-green': task.priority == 1,
-                        'background-yellow-green': task.priority == 2,
-                        'background-gold': task.priority == 3,
-                        'background-orange': task.priority == 4,
-                        'background-red': task.priority == 5
-                    }"
+                {
+                    'background-light-gray': task.priority == 0,
+                    'background-light-green': task.priority == 1,
+                    'background-yellow-green': task.priority == 2,
+                    'background-gold': task.priority == 3,
+                    'background-orange': task.priority == 4,
+                    'background-red': task.priority == 5
+                }"
                 class="task-priority border-radius-10px font-medium font-white hover-cursor-pointer text-align-center">
             {{ priorityToString(task.priority) }}
         </button>
         <mat-menu #menu="matMenu">
-            <div mat-menu-item (click)="updateTaskPriority(0)">
+            <div *ngFor="let priority of [0,1,2,3,4,5]" mat-menu-item (click)="updateTaskPriority(priority)">
                 <button matRipple
                         [matRippleColor]="gray"
                         [matRippleCentered]="true"
+                        [ngClass]="
+                        {
+                            'background-light-gray': priority == 0,
+                            'background-light-green': priority == 1,
+                            'background-yellow-green': priority == 2,
+                            'background-gold': priority == 3,
+                            'background-orange': priority == 4,
+                            'background-red': priority == 5
+                        }"
                         class="task-priority-option background-light-gray border-radius-10px font-medium font-white hover-cursor-pointer text-align-center">
-                    {{ priorityToString(0) }}
-                </button>
-            </div>
-            <div mat-menu-item (click)="updateTaskPriority(1)">
-                <button matRipple
-                        [matRippleColor]="gray"
-                        [matRippleCentered]="true"
-                        class="task-priority-option background-light-green border-radius-10px font-medium font-white hover-cursor-pointer text-align-center">
-                    {{ priorityToString(1) }}
-                </button>
-            </div>
-            <div mat-menu-item (click)="updateTaskPriority(2)">
-                <button matRipple
-                        [matRippleColor]="gray"
-                        [matRippleCentered]="true"
-                        class="task-priority-option background-yellow-green border-radius-10px font-medium font-white hover-cursor-pointer text-align-center">
-                    {{ priorityToString(2) }}
-                </button>
-            </div>
-            <div mat-menu-item (click)="updateTaskPriority(3)">
-                <button matRipple
-                        [matRippleColor]="gray"
-                        [matRippleCentered]="true"
-                        class="task-priority-option background-gold border-radius-10px font-medium font-white hover-cursor-pointer text-align-center">
-                    {{ priorityToString(3) }}
-                </button>
-            </div>
-            <div mat-menu-item (click)="updateTaskPriority(4)">
-                <button matRipple
-                        [matRippleColor]="gray"
-                        [matRippleCentered]="true"
-                        class="task-priority-option background-orange border-radius-10px font-medium font-white hover-cursor-pointer text-align-center">
-                    {{ priorityToString(4) }}
-                </button>
-            </div>
-            <div mat-menu-item (click)="updateTaskPriority(5)">
-                <button matRipple
-                        [matRippleColor]="gray"
-                        [matRippleCentered]="true"
-                        class="task-priority-option background-red border-radius-10px font-medium font-white hover-cursor-pointer text-align-center">
-                    {{ priorityToString(5) }}
+                    {{ priorityToString(priority) }}
                 </button>
             </div>
         </mat-menu>
-
     </div>
-    <div (click)="deleteTask(task)" class="font-small hover-cursor-pointer">x</div>
+    <div class="task-due-date-section border-right-light-gray flex-align-items-center flex-justify-content-space-between flex-row">
+        <div *ngIf="task.dueDateStart">{{ parseUTCDate(task.dueDateStart) }}</div>
+        <div *ngIf="!task.dueDateStart"></div>
+        <div>
+            <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+            <mat-form-field style="width:1px;visibility:hidden;" color="accent" appearance="fill">
+                <input matInput [matDatepicker]="startDatePicker" (dateChange)="updateTaskDueDateStart($event)">
+                <mat-datepicker #startDatePicker></mat-datepicker>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="task-due-date-section border-right-light-gray flex-align-items-center flex-justify-content-space-between flex-row">
+        <div *ngIf="task.dueDateEnd">{{ parseUTCDate(task.dueDateEnd) }}</div>
+        <div *ngIf="!task.dueDateEnd"></div>
+        <div>
+            <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+            <mat-form-field style="width:1px;visibility:hidden;" color="accent" appearance="fill">
+                <input matInput [matDatepicker]="endDatePicker" (dateChange)="updateTaskDueDateEnd($event)">
+                <mat-datepicker #endDatePicker></mat-datepicker>
+            </mat-form-field>
+        </div>
+    </div>
+    <button mat-icon-button (click)="deleteTask(task)" class="font-small hover-cursor-pointer">x</button>
 </div>
