@@ -12,7 +12,7 @@ import { MessageService } from '../../services/message.service';
 export class TaskComponent implements OnInit {
   @ViewChild('taskNameInput', { static: false }) taskNameInput: ElementRef;
 
-  @Input() task: Task
+  @Input() task: Task;
   @Output() deleteTaskEvent: EventEmitter<Task> = new EventEmitter<Task>();
 
   constructor(private renderer: Renderer2, private taskService: TaskService, private messageService: MessageService) { }

@@ -1,12 +1,16 @@
+.task-checkbox {
+    margin-right: 15px;
+    padding-bottom: 8px;
+    padding-top: 16px;
+}
 .task {
     padding: 0px 10px;
 }
 .task-completed {
   margin-right: 5px;
 }
-.task-name-input {
-  padding: 5px 5px 5px 0px;
-  width: 300px;
+.task-name-section {
+    width: 300px;
 }
 .task-priority {
   height: 20px;

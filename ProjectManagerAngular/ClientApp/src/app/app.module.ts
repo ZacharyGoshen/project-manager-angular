@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-import { MatButtonModule, MatMenuModule, MatRippleModule } from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatInputModule, MatMenuModule, MatRippleModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { CategoryComponent } from './components/category/category.component';
@@ -30,6 +30,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ]),
     BrowserAnimationsModule,
     MatButtonModule,
+    MatCheckboxModule,
+    MatInputModule,
     MatMenuModule,
     MatRippleModule
   ],
