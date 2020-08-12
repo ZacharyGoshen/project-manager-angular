@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-import { MatButtonModule, MatCheckboxModule, MatDatepickerModule, MatInputModule, MatMenuModule, MatRippleModule, MatDatepicker, MatNativeDateModule } from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatDatepickerModule, MatInputModule, MatMenuModule, MatRippleModule, MatDatepicker, MatNativeDateModule, MatSnackBarModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { CategoryComponent } from './components/category/category.component';
@@ -36,6 +36,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatInputModule,
     MatNativeDateModule,
     MatMenuModule,
+    MatSnackBarModule,
     MatRippleModule
   ],
   providers: [],

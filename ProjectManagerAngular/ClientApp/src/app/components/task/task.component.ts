@@ -55,7 +55,7 @@ export class TaskComponent implements OnInit {
     if (dueDateStart < new Date()) {
       return;
     }
-    this.task.dueDateStart = dueDateStart;
+    this.task.dueDateStart = $event;
     this.taskService.updateTask(this.task).subscribe();
   }
 
@@ -68,7 +68,7 @@ export class TaskComponent implements OnInit {
     if (dueDateEnd <= dueDateStart) {
       return;
     }
-    this.task.dueDateEnd = dueDateEnd;
+    this.task.dueDateEnd = $event;
     this.taskService.updateTask(this.task).subscribe();
   }
 

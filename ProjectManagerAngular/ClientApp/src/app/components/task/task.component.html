@@ -49,7 +49,7 @@
         <div>
             <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
             <mat-form-field style="width:1px;visibility:hidden;" color="accent" appearance="fill">
-                <input matInput [matDatepicker]="startDatePicker" (dateChange)="updateTaskDueDateStart($event)">
+                <input matInput [matDatepicker]="startDatePicker" (dateChange)="updateTaskDueDateStart($event)" value="{{ task.dueDateStart }}">
                 <mat-datepicker #startDatePicker></mat-datepicker>
             </mat-form-field>
         </div>
@@ -60,7 +60,7 @@
         <div>
             <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
             <mat-form-field style="width:1px;visibility:hidden;" color="accent" appearance="fill">
-                <input matInput [matDatepicker]="endDatePicker" (dateChange)="updateTaskDueDateEnd($event)">
+                <input matInput [matDatepicker]="endDatePicker" (dateChange)="updateTaskDueDateEnd($event)" value="{{ task.dueDateEnd }}">
                 <mat-datepicker #endDatePicker></mat-datepicker>
             </mat-form-field>
         </div>
