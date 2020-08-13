@@ -12,6 +12,7 @@ import { ProjectComponent } from './components/project/project.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProjectEditComponent } from './components/project-edit/project-edit.component';
 import { ListComponent } from './components/list/list.component';
+import { CallbackPipe } from './shared/callback.pipe';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ListComponent } from './components/list/list.component';
     CategoryComponent,
     ProjectComponent,
     ProjectEditComponent,
-    ListComponent
+    ListComponent,
+    CallbackPipe
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

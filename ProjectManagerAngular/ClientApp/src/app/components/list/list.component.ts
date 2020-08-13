@@ -28,6 +28,12 @@ export class ListComponent implements OnInit {
       });
   }
 
+  deleteProject(): void {
+    this.projectService.deleteProject(this.currentProject).subscribe();
+    this.projects = this.projects.filter(p => p !== this.currentProject);
+    this.currentProject = this.projects[0];
+  }
+
   setCurrentProject(project: Project): void {
     this.currentProject = project;
   }
@@ -38,5 +44,9 @@ export class ListComponent implements OnInit {
         project: this.currentProject
       }
     });
+  }
+
+  filterCurrentProject(project: Project): boolean {
+    return project !== this.currentProject;
   }
 }

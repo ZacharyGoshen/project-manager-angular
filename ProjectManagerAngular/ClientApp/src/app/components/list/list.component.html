@@ -11,12 +11,13 @@
             </button>
             <mat-menu #projectMenu="matMenu">
                 <button mat-menu-item (click)="openProjectEditDialog()">Edit Project</button>
+                <button mat-menu-item (click)="deleteProject()">Delete Project</button>
             </mat-menu>
             <button mat-icon-button [matMenuTriggerFor]="projectsMenu">
                 <mat-icon>arrow_drop_down</mat-icon>
             </button>
             <mat-menu #projectsMenu="matMenu">
-                <button *ngFor="let project of projects" mat-menu-item (click)="setCurrentProject(project)">{{ project.name }}</button>
+                <button *ngFor="let project of projects | callback: filterCurrentProject" mat-menu-item (click)="setCurrentProject(project)">{{ project.name }}</button>
             </mat-menu>
         </div>
         <div class="header border-bottom-light-gray border-top-light-gray flex-row flex-shrink-off">
