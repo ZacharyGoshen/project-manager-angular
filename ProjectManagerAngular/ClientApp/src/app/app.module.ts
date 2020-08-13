@@ -11,6 +11,7 @@ import { TaskComponent } from './components/task/task.component';
 import { ProjectComponent } from './components/project/project.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProjectEditComponent } from './components/project-edit/project-edit.component';
+import { ListComponent } from './components/list/list.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { ProjectEditComponent } from './components/project-edit/project-edit.com
     TaskComponent,
     CategoryComponent,
     ProjectComponent,
-    ProjectEditComponent
+    ProjectEditComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -27,7 +29,7 @@ import { ProjectEditComponent } from './components/project-edit/project-edit.com
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
-      { path: '', component: ProjectComponent, pathMatch: 'full' },
+      { path: '', component: ListComponent, pathMatch: 'full' },
     ]),
     BrowserAnimationsModule,
     MatButtonModule,

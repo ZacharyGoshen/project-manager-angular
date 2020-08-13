@@ -16,7 +16,7 @@ namespace ProjectManagerAngular.Controllers
             var context = new Context();
             try
             {
-                return Json(context.Projects.First());
+                return Json(context.Projects);
             }
             catch
             {

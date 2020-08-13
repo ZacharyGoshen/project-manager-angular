@@ -21,6 +21,10 @@ export class ProjectService {
     return this.http.get<Project>(this.projectsUrl);
   }
 
+  getProjects(): Observable<Project[]> {
+    return this.http.get<Project[]>(this.projectsUrl);
+  }
+
   updateProject(project: Project): Observable<Project> {
     return this.http.put<Project>(this.projectsUrl, project, this.httpOptions);
   }

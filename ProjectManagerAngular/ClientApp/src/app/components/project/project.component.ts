@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 
 import { Project } from '../../models/project';
 import { Category } from '../../models/category';
@@ -13,30 +13,28 @@ import { ProjectEditComponent } from '../project-edit/project-edit.component';
   templateUrl: './project.component.html',
   styleUrls: ['./project.component.css']
 })
-export class ProjectComponent implements OnInit {
+export class ProjectComponent implements OnInit, OnChanges {
 
   @ViewChild('newCategoryButton', { static: false }) newCategoryButton: ElementRef;
   @ViewChild('newCategoryInput', { static: false }) newCategoryInput: ElementRef;
 
-  project: Project;
+  @Input() project: Project;
   categories: Category[];
   newCategoryInputHidden: boolean = true;
 
   constructor(public dialog: MatDialog, private renderer: Renderer2, private projectService: ProjectService, private categoryService: CategoryService, private messageService: MessageService) { }
 
   ngOnInit() {
-    this.getProject();
-    this.getCategories();
+    this.getCategoriesInProject();
     this.onClickOutsideNewCategoryInput();
   }
 
-  getProject(): void {
-    this.projectService.getProject()
-      .subscribe(project => this.project = project);
+  ngOnChanges() {
+    this.getCategoriesInProject();
   }
 
-  getCategories(): void {
-    this.categoryService.getCategories()
+  getCategoriesInProject(): void {
+    this.categoryService.getCategoriesInProject(this.project.id)
       .subscribe(categories => this.categories = categories);
   }
 

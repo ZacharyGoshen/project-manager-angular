@@ -18,8 +18,8 @@ export class CategoryService {
 
   constructor(private http: HttpClient, private messageService: MessageService) { }
 
-  getCategories(): Observable<Category[]> {
-    return this.http.get<Category[]>(this.categoriesUrl);
+  getCategoriesInProject(projectId: number): Observable<Category[]> {
+    return this.http.get<Category[]>(`${this.categoriesUrl}?projectId=${projectId}`);
   }
 
   addCategory(category: Category): Observable<Category> {

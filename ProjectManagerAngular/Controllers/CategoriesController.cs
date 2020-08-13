@@ -11,12 +11,19 @@ namespace ProjectManagerAngular.Controllers
     {
         [HttpGet]
         [Route("categories")]
-        public JsonResult ListCategories()
+        public JsonResult GetCategoriesInProject()
         {
+            var projectId = HttpContext.Request.Query["projectId"].ToString();
+            if (projectId == "") {
+                throw new Exception();
+            }
+
             var context = new Context();
             try
             {
-                return Json(context.Categories.ToList());
+                var categories = context.Categories
+                    .Where(c => c.ProjectId == Int32.Parse(projectId));
+                return Json(categories);
             }
             catch
             {

@@ -1,24 +1,6 @@
-.categories {
+.project {
   overflow: auto;
   padding: 10px 20px 10px 10px;
-}
-.header {
-    padding-left: 60px;
-    padding-right: 70px;
-}
-.header-due-date {
-  padding: 5px 0px 5px 10px;
-  width: 150px;
-}
-.header-priority {
-  padding: 5px 0px 5px 10px;
-  width: 122px;
-}
-.header-name {
-  padding: 5px 0px 5px 10px;
-}
-.navigation-bar {
-    padding: 10px;
 }
 .new-category-button {
     margin-left: 5px;
@@ -26,14 +8,4 @@
 .new-category-input {
     padding: 0px 5px;
     width: 100%;
-}
-.project {
-  bottom: 0px;
-  left: 0px;
-  position: absolute;
-  right: 0px;
-  top: 0px;
-}
-.project-name {
-    padding: 0px 10px;
 }

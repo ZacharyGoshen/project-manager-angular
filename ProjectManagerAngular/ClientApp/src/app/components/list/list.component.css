@@ -1,0 +1,24 @@
+.header {
+  padding-left: 60px;
+  padding-right: 70px;
+}
+.header-due-date {
+  padding: 5px 0px 5px 10px;
+  width: 150px;
+}
+.header-priority {
+  padding: 5px 0px 5px 10px;
+  width: 122px;
+}
+.header-name {
+  padding: 5px 0px 5px 10px;
+}
+.list {
+  height: 100%;
+}
+.navigation-bar {
+  padding: 10px;
+}
+.project-name {
+  padding: 0px 10px;
+}
