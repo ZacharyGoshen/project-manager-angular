@@ -134,6 +134,9 @@ p {
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+.overflow-y-auto {
+    overflow-y: auto;
+}
 .text-decoration-line-through {
     text-decoration: line-through;
 }

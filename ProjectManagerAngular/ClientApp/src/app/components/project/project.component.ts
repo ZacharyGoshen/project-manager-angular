@@ -5,8 +5,6 @@ import { Category } from '../../models/category';
 import { CategoryService } from './../../services/category.service';
 import { MessageService } from '../../services/message.service';
 import { ProjectService } from '../../services/project.service';
-import { MatDialog } from '@angular/material';
-import { ProjectEditComponent } from '../project-edit/project-edit.component';
 
 @Component({
   selector: 'app-project',
@@ -22,7 +20,7 @@ export class ProjectComponent implements OnInit, OnChanges {
   categories: Category[];
   newCategoryInputHidden: boolean = true;
 
-  constructor(public dialog: MatDialog, private renderer: Renderer2, private projectService: ProjectService, private categoryService: CategoryService, private messageService: MessageService) { }
+  constructor(private renderer: Renderer2, private projectService: ProjectService, private categoryService: CategoryService, private messageService: MessageService) { }
 
   ngOnInit() {
     this.getCategoriesInProject();
@@ -58,15 +56,6 @@ export class ProjectComponent implements OnInit, OnChanges {
   deleteCategory($event): void {
     this.categories = this.categories.filter(c => c !== $event);
     this.categoryService.deleteCategory($event).subscribe();
-  }
-
-  openProjectEditDialog(): void {
-    const dialogReference = this.dialog.open(ProjectEditComponent, {
-      data: {
-        project: this.project
-      }
-    });
-
   }
 
   showNewCategoryInput(): void {

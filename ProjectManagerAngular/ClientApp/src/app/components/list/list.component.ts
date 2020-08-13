@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectService } from '../../services/project.service';
 import { Project } from '../../models/project';
+import { ProjectEditComponent } from '../project-edit/project-edit.component';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-list',
@@ -12,7 +14,7 @@ export class ListComponent implements OnInit {
   currentProject: Project;
   projects: Project[];
 
-  constructor(private projectService: ProjectService) { }
+  constructor(public dialog: MatDialog, private projectService: ProjectService) { }
 
   ngOnInit() {
     this.getProjects();
@@ -28,5 +30,13 @@ export class ListComponent implements OnInit {
 
   setCurrentProject(project: Project): void {
     this.currentProject = project;
+  }
+
+  openProjectEditDialog(): void {
+    const dialogReference = this.dialog.open(ProjectEditComponent, {
+      data: {
+        project: this.currentProject
+      }
+    });
   }
 }

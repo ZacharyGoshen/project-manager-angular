@@ -1,28 +1,32 @@
 <div class="list flex-column">
-    <div class="navigation-bar flex-align-items-center flex-row flex-shrink-off">
-        <button *ngIf="currentProject"
-                matRipple
-                [matRippleColor]="gray"
-                [matRippleCentered]="true"
-                [matMenuTriggerFor]="projectMenu"
-                class="project-name border-radius-5px font-very-large">
-            {{ currentProject.name }}
-        </button>
-        <mat-menu #projectMenu="matMenu">
-            <button mat-menu-item (click)="openProjectEditDialog()">Edit Project</button>
-        </mat-menu>
-        <button mat-icon-button [matMenuTriggerFor]="projectsMenu">
-            <mat-icon>arrow_drop_down</mat-icon>
-        </button>
-        <mat-menu #projectsMenu="matMenu">
-            <button *ngFor="let project of projects" mat-menu-item (click)="setCurrentProject(project)">{{ project.name }}</button>
-        </mat-menu>
+    <div>
+        <div class="navigation-bar flex-align-items-center flex-row flex-shrink-off">
+            <button *ngIf="currentProject"
+                    matRipple
+                    [matRippleColor]="gray"
+                    [matRippleCentered]="true"
+                    [matMenuTriggerFor]="projectMenu"
+                    class="project-name border-radius-5px font-very-large">
+                {{ currentProject.name }}
+            </button>
+            <mat-menu #projectMenu="matMenu">
+                <button mat-menu-item (click)="openProjectEditDialog()">Edit Project</button>
+            </mat-menu>
+            <button mat-icon-button [matMenuTriggerFor]="projectsMenu">
+                <mat-icon>arrow_drop_down</mat-icon>
+            </button>
+            <mat-menu #projectsMenu="matMenu">
+                <button *ngFor="let project of projects" mat-menu-item (click)="setCurrentProject(project)">{{ project.name }}</button>
+            </mat-menu>
+        </div>
+        <div class="header border-bottom-light-gray border-top-light-gray flex-row flex-shrink-off">
+            <div class="header-name  border-left-light-gray border-right-light-gray flex-grow font-medium">Name</div>
+            <div class="header-priority  border-right-light-gray font-medium">Priority</div>
+            <div class="header-due-date  border-right-light-gray font-medium">Starting Due Date</div>
+            <div class="header-due-date  border-right-light-gray font-medium">Ending Due Date</div>
+        </div>
     </div>
-    <div class="header border-bottom-light-gray border-top-light-gray flex-row flex-shrink-off">
-        <div class="header-name  border-left-light-gray border-right-light-gray flex-grow font-medium">Name</div>
-        <div class="header-priority  border-right-light-gray font-medium">Priority</div>
-        <div class="header-due-date  border-right-light-gray font-medium">Starting Due Date</div>
-        <div class="header-due-date  border-right-light-gray font-medium">Ending Due Date</div>
+    <div class="flex-grow overflow-y-auto">
+        <app-project *ngIf="currentProject" [project]="currentProject"></app-project>
     </div>
-    <app-project *ngIf="currentProject" [project]="currentProject"></app-project>
 </div>

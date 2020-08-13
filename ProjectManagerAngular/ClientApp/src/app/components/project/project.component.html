@@ -1,4 +1,4 @@
-<div class="project flex-grow">
+<div class="project">
     <app-category *ngFor="let category of categories" [category]="category" (deleteCategoryEvent)="deleteCategory($event)"></app-category>
     <div class="new-category flex-row">
         <div #newCategoryButton [hidden]="!newCategoryInputHidden" (click)="showNewCategoryInput()" class="new-category-button border-full-white font-large font-light-gray hover-cursor-pointer hover-font-dark-gray">+ Add category</div>
