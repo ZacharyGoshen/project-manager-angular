@@ -11,9 +11,7 @@ import { ProjectService } from '../../services/project.service'
 
 export class ProjectEditComponent {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: ProjectEditData, private projectService: ProjectService) {
-    this.project = data.project;
-  }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private projectService: ProjectService) { }
 
   updateProject(name: string): void {
     this.data.project.name = name;

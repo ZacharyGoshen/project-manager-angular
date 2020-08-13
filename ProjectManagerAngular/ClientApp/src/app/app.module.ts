@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-import { MatButtonModule, MatCheckboxModule, MatDatepickerModule, MatInputModule, MatMenuModule, MatRippleModule, MatDatepicker, MatNativeDateModule, MatSnackBarModule, MatDialogModule } from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatDatepickerModule, MatInputModule, MatMenuModule, MatRippleModule, MatDatepicker, MatNativeDateModule, MatSnackBarModule, MatDialogModule, MatIconModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { CategoryComponent } from './components/category/category.component';
@@ -34,6 +34,7 @@ import { ProjectEditComponent } from './components/project-edit/project-edit.com
     MatCheckboxModule,
     MatDatepickerModule,
     MatDialogModule,
+    MatIconModule,
     MatInputModule,
     MatNativeDateModule,
     MatMenuModule,

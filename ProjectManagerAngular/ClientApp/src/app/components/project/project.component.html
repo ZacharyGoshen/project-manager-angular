@@ -1,6 +1,19 @@
 <div class="project flex-column flex-grow">
-    <div class="navigation-bar">
-        <div *ngIf="project" (click)="openProjectEditDialog()"class="font-very-large">{{ project.name }}</div>
+    <div class="navigation-bar flex-align-items-center flex-row">
+        <button matRipple
+                [matRippleColor]="gray"
+                [matRippleCentered]="true"
+                [matMenuTriggerFor]="menu"
+                *ngIf="project"
+                class="project-name border-radius-5px font-very-large">
+            {{ project.name }}
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="openProjectEditDialog()">Edit Project</button>
+        </mat-menu>
+        <button mat-icon-button>
+            <mat-icon>arrow_drop_down</mat-icon>
+        </button>
     </div>
     <div class="header border-bottom-light-gray border-top-light-gray flex-row">
         <div class="header-name  border-left-light-gray border-right-light-gray flex-grow font-medium">Name</div>
