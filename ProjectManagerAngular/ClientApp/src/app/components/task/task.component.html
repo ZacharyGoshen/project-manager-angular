@@ -1,4 +1,4 @@
-<div class="task border-bottom-light-gray font-medium flex-align-items-center flex-grow flex-row">
+<div [ngClass]="{'translucent': task.completed}" class="task border-bottom-light-gray font-medium flex-align-items-center flex-grow flex-row">
     <div class="task-name-section border-right-light-gray flex-align-items-center flex-grow flex-row">
         <div class="task-checkbox">
             <mat-checkbox [checked]="task.completed" (change)="updateTaskCompleted()">

@@ -41,11 +41,11 @@ export class ProjectComponent implements OnInit {
   addCategory(name: string): void {
     name = name.trim();
     if (!name) {
-      this.messageService.addMessage('A category can not be created without a name');
+      this.messageService.addMessage('Name can not be empty', 'Create Category');
       return;
     }
     if (name.length > 50) {
-      this.messageService.addMessage("A category's name can not be longer than 50 characters");
+      this.messageService.addMessage('Name must be 50 characters or less', 'Create Category');
       return;
     }
     this.categoryService.addCategory({ name: name, projectId: this.project.id } as Category)

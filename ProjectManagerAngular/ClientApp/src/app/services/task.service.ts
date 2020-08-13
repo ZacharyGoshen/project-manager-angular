@@ -23,7 +23,7 @@ export class TaskService {
   }
 
   addTask(task: Task): Observable<Task> {
-    this.messageService.addMessage(`Created new task: ${task.name}`);
+    this.messageService.addMessage(`"${task.name}" created`, 'Create Task');
     return this.http.post<Task>(this.tasksUrl, task, this.httpOptions);
   }
 
@@ -32,14 +32,14 @@ export class TaskService {
   }
 
   deleteTask(task: Task): Observable<Task> {
-    this.messageService.addMessage(`Deleted task: ${task.name}`);
+    this.messageService.addMessage(`"${task.name}" deleted`, 'Delete Task');
     const url = `${this.tasksUrl}/${task.id}`;
     return this.http.delete<Task>(url, this.httpOptions);
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-      this.messageService.addMessage(`${operation} failed: ${error.message}`);
+      this.messageService.addMessage(error.message, operation);
       return of(result as T);
     }
   }

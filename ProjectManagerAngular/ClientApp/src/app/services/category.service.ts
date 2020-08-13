@@ -23,7 +23,7 @@ export class CategoryService {
   }
 
   addCategory(category: Category): Observable<Category> {
-    this.messageService.addMessage(`Created new category: ${category.name}`);
+    this.messageService.addMessage(`"${category.name}" created`, 'Create Category');
     return this.http.post<Category>(this.categoriesUrl, category, this.httpOptions);
   }
 
@@ -32,7 +32,7 @@ export class CategoryService {
   }
 
   deleteCategory(category: Category): Observable<Category> {
-    this.messageService.addMessage(`Deleted category: ${category.name}`);
+    this.messageService.addMessage(`"${category.name}" deleted`, 'Delete Category');
     const url = `${this.categoriesUrl}/${category.id}`;
     return this.http.delete<Category>(url, this.httpOptions);
   }

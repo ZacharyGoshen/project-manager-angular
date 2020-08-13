@@ -29,13 +29,13 @@ export class TaskComponent implements OnInit {
   updateTaskName(name: string): void {
     name = name.trim();
     if (!name) {
-      this.messageService.addMessage("A task's name must not be nothing");
+      this.messageService.addMessage("Name can not be empty", "Update Task");
       this.taskNameInput.nativeElement.value = this.task.name;
       this.taskNameInput.nativeElement.blur();
       return;
     }
     if (name.length > 100) {
-      this.messageService.addMessage("A task's name can not be longer than 100 characters");
+      this.messageService.addMessage("Name must be 100 characters or less", "Update Task");
       this.taskNameInput.nativeElement.value = this.task.name;
       this.taskNameInput.nativeElement.blur();
       return;
@@ -53,22 +53,25 @@ export class TaskComponent implements OnInit {
   updateTaskDueDateStart($event) {
     let dueDateStart = new Date($event.value);
     if (dueDateStart < new Date()) {
+      this.messageService.addMessage("Due date can not be before today", "Update Task");
       return;
     }
-    this.task.dueDateStart = $event;
+    this.task.dueDateStart = $event.value;
     this.taskService.updateTask(this.task).subscribe();
   }
 
   updateTaskDueDateEnd($event) {
     if (!this.task.dueDateStart) {
+      this.messageService.addMessage("Starting due date must be set", "Update Task");
       return;
     }
     let dueDateStart = new Date(this.task.dueDateStart);
     let dueDateEnd = new Date($event.value);
     if (dueDateEnd <= dueDateStart) {
+      this.messageService.addMessage("Ending due date must be after starting due date", "Update Task");
       return;
     }
-    this.task.dueDateEnd = $event;
+    this.task.dueDateEnd = $event.value;
     this.taskService.updateTask(this.task).subscribe();
   }
 

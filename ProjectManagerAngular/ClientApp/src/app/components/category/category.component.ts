@@ -44,11 +44,11 @@ export class CategoryComponent implements OnInit {
   addTask(name: string): void {
     name = name.trim();
     if (!name) {
-      this.messageService.addMessage('A task can not be created without a name');
+      this.messageService.addMessage('Name can not be empty', 'Create Task');
       return;
     }
     if (name.length > 100) {
-      this.messageService.addMessage("A task's name can not be longer than 100 characters");
+      this.messageService.addMessage('Name must be 100 characters or less', 'Create Task');
       return;
     }
     this.taskService.addTask({ name: name, categoryId: this.category.id } as Task)
@@ -66,13 +66,13 @@ export class CategoryComponent implements OnInit {
   updateCategoryName(name: string): void {
     name = name.trim();
     if (!name) {
-      this.messageService.addMessage("A category's name must not be nothing");
+      this.messageService.addMessage('Name can not be empty', 'Update Category');
       this.categoryNameInput.nativeElement.value = this.category.name;
       this.categoryNameInput.nativeElement.blur();
       return;
     }
     if (name.length > 50) {
-      this.messageService.addMessage("A category's name can not be longer than 50 characters");
+      this.messageService.addMessage('Name must be 50 characters or less', 'Update Category');
       this.categoryNameInput.nativeElement.value = this.category.name;
       this.categoryNameInput.nativeElement.blur();
       return;
