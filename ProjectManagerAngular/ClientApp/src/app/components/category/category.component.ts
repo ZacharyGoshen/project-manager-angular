@@ -79,7 +79,7 @@ export class CategoryComponent implements OnInit {
     }
     this.category.name = name;
     this.categoryService.updateCategory(this.category).subscribe();
-    this.categoryNameInput.nativeElement.blur();``
+    this.categoryNameInput.nativeElement.blur();
   }
 
   onClickOutsideCategoryNameInput(): void {

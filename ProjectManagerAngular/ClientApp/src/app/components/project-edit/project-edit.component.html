@@ -1,0 +1,11 @@
+<div mat-dialog-title>Edit Project</div>
+<mat-dialog-content>
+    <mat-form-field>
+        <mat-label>Project Name</mat-label>
+        <input #projectNameInput matInput type="text" value="{{ data.project.name }}" />
+    </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-raised-button color="accent" (click)=updateProject(projectNameInput.value) [mat-dialog-close]="true" cdkFocusInitial>Submit</button>
+    <button mat-raised-button mat-dialog-close>Cancel</button>
+</mat-dialog-actions>

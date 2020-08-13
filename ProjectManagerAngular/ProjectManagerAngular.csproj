@@ -31,6 +31,9 @@
     <None Include="ClientApp\src\app\components\project\project.component.html" />
     <None Include="ClientApp\src\app\components\project\project.component.ts" />
     <None Include="ClientApp\src\app\components\project\project.component.spec.ts" />
+    <None Include="**/*" />
+    <None Include="**/*" />
+    <None Include="**/*" />
   </ItemGroup>
 
   <ItemGroup>
@@ -41,6 +44,7 @@
     <Folder Include="Models\" />
     <Folder Include="DAL\" />
     <Folder Include="ClientApp\src\app\components\project\" />
+    <Folder Include="ClientApp\src\app\components\project-edit\" />
   </ItemGroup>
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
     <!-- Ensure Node.js is installed -->

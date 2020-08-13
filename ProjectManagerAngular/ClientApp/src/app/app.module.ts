@@ -1,16 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-import { MatButtonModule, MatCheckboxModule, MatDatepickerModule, MatInputModule, MatMenuModule, MatRippleModule, MatDatepicker, MatNativeDateModule, MatSnackBarModule } from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatDatepickerModule, MatInputModule, MatMenuModule, MatRippleModule, MatDatepicker, MatNativeDateModule, MatSnackBarModule, MatDialogModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { CategoryComponent } from './components/category/category.component';
 import { TaskComponent } from './components/task/task.component';
-import { MessagesComponent } from './components/messages/messages.component';
 import { ProjectComponent } from './components/project/project.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProjectEditComponent } from './components/project-edit/project-edit.component';
 
 
 @NgModule({
@@ -18,8 +18,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppComponent,
     TaskComponent,
     CategoryComponent,
-    MessagesComponent,
-    ProjectComponent
+    ProjectComponent,
+    ProjectEditComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -33,6 +33,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatButtonModule,
     MatCheckboxModule,
     MatDatepickerModule,
+    MatDialogModule,
     MatInputModule,
     MatNativeDateModule,
     MatMenuModule,
@@ -40,6 +41,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatRippleModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ProjectEditComponent]
 })
 export class AppModule { }
